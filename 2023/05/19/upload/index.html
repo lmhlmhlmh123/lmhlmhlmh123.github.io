@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="刘明皓的博客">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    
+        
+            <link rel="preconnect" href="https://unpkg.com" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2023/05/19/upload/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="false">
+<meta property="og:type" content="article">
+<meta property="og:title" content="封装一个上传图片的组件">
+<meta property="og:url" content="http://example.com/2023/05/19/upload/index.html">
+<meta property="og:site_name" content="刘明皓的博客">
+<meta property="og:description" content="false">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-19T07:32:03.000Z">
+<meta property="article:modified_time" content="2023-05-19T07:51:20.716Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/39458e98cc7b2c79a6985f1ebcaa8f8.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/39458e98cc7b2c79a6985f1ebcaa8f8.jpg">
+    <meta name="theme-color" content="#4F4F4F">
+    <link rel="shortcut icon" href="/images/39458e98cc7b2c79a6985f1ebcaa8f8.jpg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            封装一个上传图片的组件 -
+        
+        刘明皓的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/assets/fonts.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    Global.theme_config = {"articles":{"style":{"font_size":"18px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":true,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["功不唐捐 玉汝于成"]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":false,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/bj1.gif","skip_dirs":["推荐"]}},"colors":{"primary":"#4F4F4F","secondary":"#1890ff"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-light.webp"},"title":"刘明皓的博客","subtitle":{"text":["人终会被年少不可得之物困其一生，暮年浮光之景终将瞬息点醒，又终会因一事一物解开终生困惑"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":false,"smart_backspace":false},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/lmhlmhlmh123","instagram":null,"zhihu":null,"twitter":null,"email":"3398157816@qq.com"}}},"plugins":{"feed":{"enable":true},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"大海","artist":"张雨生","url":"https://www.xzmp3.com/down/d7286673db5a.mp3","cover":"https://img2.baidu.com/it/u=1531336644,1874865814&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.1.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"YYYY-MM-DD","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                刘明皓的博客
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/tags"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-tags"></i>
+                                        
+                                        TAGS
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/categories"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-folder"></i>
+                                        
+                                        CATEGORIES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/tags"  >
+                             
+                                
+                                    <i class="fa-regular fa-tags"></i>
+                                
+                                TAGS
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/categories"  >
+                             
+                                
+                                    <i class="fa-regular fa-folder"></i>
+                                
+                                CATEGORIES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            
+                      
+                <div class="article-title">
+                    <img src="https://img2.baidu.com/it/u=2754882029,714091813&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=PNG?w=600&amp;h=331" alt="封装一个上传图片的组件" />
+                    <h1 class="article-title-cover">封装一个上传图片的组件</h1>
+                </div>
+            
+                
+            
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/39458e98cc7b2c79a6985f1ebcaa8f8.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">刘明皓的博客</span>
+                            
+                                <span class="author-label">功不唐捐 玉汝于成</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-05-19 15:32:03</span>
+        <span class="mobile">2023-05-19 15:32</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-05-19 15:51:20</span>
+            <span class="mobile">2023-05-19 15:51</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/React/">React</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.1k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>5 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h2><h4 id="后台配置"><a href="#后台配置" class="headerlink" title="后台配置"></a>后台配置</h4><h5 id="upLoad-js"><a href="#upLoad-js" class="headerlink" title="upLoad.js"></a>upLoad.js</h5><ul>
+<li>在后台controller文件夹下创建一个upLoad.js文件<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;mz/fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> moment = <span class="built_in">require</span>(<span class="string">&#x27;moment&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> mkdirp = <span class="built_in">require</span>(<span class="string">&#x27;mkdirp&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Controller</span> = <span class="built_in">require</span>(<span class="string">&#x27;egg&#x27;</span>).<span class="property">Controller</span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">lmhUpload</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Controller</span> &#123;</span><br><span class="line">    <span class="comment">// 调用这个方法</span></span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">updatepuSubPic</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; ctx &#125; = <span class="variable language_">this</span>;</span><br><span class="line">        <span class="comment">// 需要前往 config/config.default.js 设置 config.multipart 的 mode 属性为 file</span></span><br><span class="line">        <span class="keyword">const</span> file = ctx.<span class="property">request</span>.<span class="property">files</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">// 声明存放资源的路径</span></span><br><span class="line">        <span class="keyword">let</span> pusubPics = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        <span class="comment">// let id = &#x27;&#x27;;</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// ctx.request.files[0] 表示获取第一个文件，若前端上传多个文件则可以遍历这个数组对象</span></span><br><span class="line">            <span class="keyword">const</span> f = fs.<span class="title function_">readFileSync</span>(file.<span class="property">filepath</span>);</span><br><span class="line">            <span class="comment">// 1.获取当前日期</span></span><br><span class="line">            <span class="keyword">const</span> day = <span class="title function_">moment</span>(<span class="keyword">new</span> <span class="title class_">Date</span>()).<span class="title function_">format</span>(<span class="string">&#x27;YYYYMMDD&#x27;</span>);</span><br><span class="line">            <span class="comment">// 2.创建图片保存的路径</span></span><br><span class="line">            <span class="comment">// 需要前往 config/config.default.js 设置 config.pusubPics 路径为app/public/pusubPics</span></span><br><span class="line">            <span class="keyword">const</span> dir = path.<span class="title function_">join</span>(<span class="variable language_">this</span>.<span class="property">config</span>.<span class="property">pusubPics</span>, day);</span><br><span class="line">            <span class="keyword">const</span> date = <span class="title class_">Date</span>.<span class="title function_">now</span>(); <span class="comment">// 毫秒数</span></span><br><span class="line">            <span class="keyword">await</span> <span class="title function_">mkdirp</span>(dir); <span class="comment">// 不存在就创建目录</span></span><br><span class="line">            <span class="comment">// 返回图片保存的路径</span></span><br><span class="line">            pusubPics = path.<span class="title function_">join</span>(dir, date + path.<span class="title function_">extname</span>(file.<span class="property">filename</span>));</span><br><span class="line">            <span class="comment">// decodeURI是为了中文乱码</span></span><br><span class="line">            <span class="comment">// id = await ctx.service.dlqupload.add(&#123; img_url: api + uploadDir, filename: decodeURI(file.filename) &#125;);</span></span><br><span class="line">            <span class="comment">// 写入文件夹</span></span><br><span class="line">            fs.<span class="title function_">writeFileSync</span>(pusubPics, f);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;error&#x27;</span>, e);</span><br><span class="line">            <span class="comment">// 清除临时文件</span></span><br><span class="line">            ctx.<span class="title function_">cleanupRequestFiles</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        ctx.<span class="property">body</span> = &#123;</span><br><span class="line">            <span class="attr">code</span>: <span class="number">200</span>,</span><br><span class="line">            <span class="attr">msg</span>: <span class="string">&#x27;上传成功&#x27;</span>,</span><br><span class="line">            <span class="attr">data</span>: pusubPics.<span class="title function_">replace</span>(<span class="regexp">/app/g</span>, <span class="string">&#x27;&#x27;</span>),</span><br><span class="line">            <span class="comment">// id,</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = lmhUpload;</span><br></pre></td></tr></table></figure></div>
+<h5 id="config-default-js"><a href="#config-default-js" class="headerlink" title="config.default.js"></a>config.default.js</h5></li>
+<li>在后台config文件夹下的config.default.js中添加配置<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">Egg.EggAppInfo</span>&#125; appInfo app info</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="function"><span class="params">appInfo</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * built-in config</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@type</span> &#123;<span class="type">Egg.EggAppConfig</span>&#125;</span></span><br><span class="line"><span class="comment">   **/</span></span><br><span class="line">  <span class="keyword">const</span> config = (<span class="built_in">exports</span> = &#123;&#125;);</span><br><span class="line">  <span class="comment">// 图片上传</span></span><br><span class="line">  config.<span class="property">uploadDir</span> = <span class="string">&#x27;app/public/upload&#x27;</span>;</span><br><span class="line">  <span class="comment">// add your middleware config here</span></span><br><span class="line">  config.<span class="property">middleware</span> = [];</span><br><span class="line">  config.<span class="property">uploadDir</span> = <span class="string">&#x27;app/public/upload&#x27;</span>;</span><br><span class="line">  <span class="comment">// use for cookie sign key, should change to your own and keep security</span></span><br><span class="line">  config.<span class="property">keys</span> = appInfo.<span class="property">name</span> + <span class="string">&#x27;_1639723070889_7073&#x27;</span>;</span><br><span class="line">  <span class="built_in">exports</span>.<span class="property">mysql</span> = &#123;</span><br><span class="line">    <span class="comment">// 单数据库信息配置</span></span><br><span class="line">    <span class="attr">client</span>: &#123;</span><br><span class="line">      <span class="comment">// host</span></span><br><span class="line">      <span class="attr">host</span>: <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">      <span class="comment">// 端口号</span></span><br><span class="line">      <span class="attr">port</span>: <span class="string">&#x27;3306&#x27;</span>,</span><br><span class="line">      <span class="comment">// 用户名</span></span><br><span class="line">      <span class="attr">user</span>: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">      <span class="comment">// 密码</span></span><br><span class="line">      <span class="attr">password</span>: <span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">      <span class="comment">// 数据库名</span></span><br><span class="line">      <span class="attr">database</span>: <span class="string">&#x27;egou&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 是否加载到 app 上，默认开启</span></span><br><span class="line">    <span class="attr">app</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 是否加载到 agent 上，默认关闭</span></span><br><span class="line">    <span class="attr">agent</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  config.<span class="property">security</span> = &#123;</span><br><span class="line">    <span class="comment">// 关闭 csrf</span></span><br><span class="line">    <span class="attr">csrf</span>: &#123;</span><br><span class="line">      <span class="attr">enable</span>: <span class="literal">false</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 跨域白名单</span></span><br><span class="line">    <span class="attr">domainWhiteList</span>: [ <span class="string">&#x27;*&#x27;</span> ],</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 允许跨域的方法</span></span><br><span class="line">  config.<span class="property">cors</span> = &#123;</span><br><span class="line">    <span class="attr">origin</span>: <span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">    <span class="attr">allowMethods</span>: <span class="string">&#x27;GET, PUT, POST, DELETE, PATCH&#x27;</span>,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  config.<span class="property">uploadDir</span> = <span class="string">&#x27;app/public/upload&#x27;</span>;</span><br><span class="line">  config.<span class="property">pusubPics</span> = <span class="string">&#x27;app/public/pusubPics&#x27;</span>;</span><br><span class="line">  <span class="comment">// add your middleware config here</span></span><br><span class="line">  config.<span class="property">middleware</span> = [];</span><br><span class="line">  <span class="comment">// add your user config here</span></span><br><span class="line">  <span class="keyword">const</span> userConfig = &#123;</span><br><span class="line">    <span class="comment">// myAppName: &#x27;egg&#x27;,</span></span><br><span class="line">  &#125;;</span><br><span class="line">  config.<span class="property">multipart</span> = &#123;</span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&#x27;file&#x27;</span>,</span><br><span class="line">    <span class="attr">fileSize</span>: <span class="string">&#x27;1048576000&#x27;</span>,</span><br><span class="line">    <span class="attr">whitelist</span>: [ <span class="string">&#x27;.txt&#x27;</span>, <span class="string">&#x27;.png&#x27;</span>, <span class="string">&#x27;.jpg&#x27;</span>, <span class="string">&#x27;.jpeg&#x27;</span> ],</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    ...config,</span><br><span class="line">    ...userConfig,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h5 id="router-js"><a href="#router-js" class="headerlink" title="router.js"></a>router.js</h5></li>
+<li>在后台路由管理文件中添加路由<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">post</span>(<span class="string">&#x27;/upload&#x27;</span>, controller.<span class="property">lmhUpload</span>.<span class="property">updatepuSubPic</span>);</span><br></pre></td></tr></table></figure></div>
+<h5 id="http-js"><a href="#http-js" class="headerlink" title="http.js"></a>http.js</h5></li>
+<li>在前端请求文件中添加请求<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">postUpload</span>(<span class="params">url, fileList</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> param = <span class="keyword">new</span> <span class="title class_">FormData</span>()</span><br><span class="line">    param.<span class="title function_">append</span>(<span class="string">&#x27;file&#x27;</span>, fileList.<span class="property">raw</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> instance.<span class="title function_">post</span>(<span class="string">`http://127.0.0.1:7001<span class="subst">$&#123;url&#125;</span>`</span>, param)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h5 id="UpLoad-jsx"><a href="#UpLoad-jsx" class="headerlink" title="UpLoad.jsx"></a>UpLoad.jsx</h5></li>
+<li>封装一个图片上传的组件 该组件使用的UI库是tdesign-mobile-react<div class="highlight-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useEffect, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Upload</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;tdesign-mobile-react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;tdesign-mobile-react/es/style/index.css&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;postUpload&#125; <span class="keyword">from</span> <span class="string">&quot;../app/https&quot;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">UpLoad</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> [fileList,setFileList]=<span class="title function_">useState</span>([])</span><br><span class="line">    <span class="keyword">const</span> files=[]</span><br><span class="line">    <span class="keyword">let</span> [arr,setArr]=<span class="title function_">useState</span>([])</span><br><span class="line">    <span class="title function_">useEffect</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        fileList.<span class="title function_">map</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</span><br><span class="line">            <span class="title function_">postUpload</span>(<span class="string">&#x27;/upload&#x27;</span>,item).<span class="title function_">then</span>(<span class="title function_">async</span>(res)=&gt;&#123;</span><br><span class="line">                <span class="keyword">const</span> obj=res.<span class="property">data</span>.<span class="title function_">replaceAll</span>(<span class="string">&#x27;\\\\&#x27;</span>,<span class="string">&#x27;\\/&#x27;</span>)</span><br><span class="line">                <span class="keyword">const</span> http=<span class="string">&quot;http://127.0.0.1:7001&quot;</span>+obj</span><br><span class="line">                <span class="title function_">setArr</span>([...arr,http])</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">        </span><br><span class="line">    &#125;,[fileList])</span><br><span class="line">    <span class="title function_">useEffect</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        props.<span class="title function_">getImage</span>(arr)</span><br><span class="line">    &#125;,[arr])</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;demo-section&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Upload</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">multiple</span>=<span class="string">&#123;true&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">autoUpload</span>=<span class="string">&#123;false&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">accept</span>=<span class="string">&quot;image/*&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">defaultFiles</span>=<span class="string">&#123;files&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">action</span>=<span class="string">&quot;http://127.0.0.1:7001/pubilc&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">beforeUpload</span>=<span class="string">&#123;()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-xml">                &#125;&#125;</span></span><br><span class="line"><span class="language-xml">                onChange=&#123;(e)=&gt;&#123;</span></span><br><span class="line"><span class="language-xml">                    setFileList(e)</span></span><br><span class="line"><span class="language-xml">                &#125;&#125;</span></span><br><span class="line"><span class="language-xml">            /&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h5 id="Topic-jsx"><a href="#Topic-jsx" class="headerlink" title="Topic.jsx"></a>Topic.jsx</h5></li>
+<li>在需要上传图片的组件中引入Upload组件<div class="highlight-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useEffect, useRef, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> style <span class="keyword">from</span> <span class="string">&quot;./topic.module.css&quot;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">UpLoad</span> <span class="keyword">from</span> <span class="string">&#x27;../../../../components/UpLoad&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Topic</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> [obj,setObj]=<span class="title function_">useState</span>(&#123;</span><br><span class="line">        <span class="attr">images</span>:<span class="string">&#x27;&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 副作用</span></span><br><span class="line">    <span class="title function_">useEffect</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">// 判断obj中的数据是否为空</span></span><br><span class="line">        <span class="keyword">if</span>(obj.<span class="property">images</span>!==<span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(obj)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// useEffect根据obj.text的变化执行</span></span><br><span class="line">    &#125;,[obj.<span class="property">images</span>])</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;style.box&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;/* 上传图片 */&#125;</span></span><br><span class="line"><span class="language-xml">        &#123;/* 向子组件传给回调 子组件调用并传参 父组件接收参数 */&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">UpLoad</span> <span class="attr">getImage</span>=<span class="string">&#123;(http)</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-xml">            const arr=http.map((item)=&gt;&#123;</span></span><br><span class="line"><span class="language-xml">                return item.replaceAll(&#x27;\\&#x27;,&#x27;/&#x27;)</span></span><br><span class="line"><span class="language-xml">            &#125;)</span></span><br><span class="line"><span class="language-xml">            // 将接到的参数转为字符串 存入obj.images中</span></span><br><span class="line"><span class="language-xml">            setObj(&#123;...obj,images:JSON.stringify(arr)&#125;)</span></span><br><span class="line"><span class="language-xml">        &#125;&#125;/&gt;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/React/">#React</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/05/19/redux/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">Redux中间件RTK的使用（持久化版）</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;Comments
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">封装一个上传图片的组件</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87"><span class="nav-text">上传图片</span></a></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">刘明皓的博客</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br>
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.2</a>
+        </div>
+        
+        
+        
+            <div id="start_div" style="display:none">
+                2022/8/17 11:45:14
+            </div>
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+            <li class="right-bottom-tools tool-aplayer flex-center">
+
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+
+<script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/utils.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/main.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/layouts/navbarShrink.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/scrollTopBottom.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/lightDarkSwitch.js"></script>
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/localSearch.js"></script>
+
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/codeBlock.js"></script>
+
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/layouts/lazyload.js"></script>
+
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/runtime.js"></script>
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/layouts/odometer.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/libs/Typed.min.js"></script>
+  <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/plugins/typed.js"></script>
+
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/libs/mermaid.min.js"></script>
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/plugins/mermaid.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/tocToggle.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/libs/anime.min.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/layouts/toc.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/plugins/tabs.js"></script>
+    
+</div>
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax',
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+    <div id="aplayer"></div>
+<script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/libs/APlayer.min.js"></script>
+<script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/plugins/aplayer.js"></script>
+
+</body>
+</html>
