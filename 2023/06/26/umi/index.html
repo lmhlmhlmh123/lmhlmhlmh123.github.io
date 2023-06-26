@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="刘明皓的博客">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    
+        
+            <link rel="preconnect" href="https://unpkg.com" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2023/06/26/umi/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="false">
+<meta property="og:type" content="article">
+<meta property="og:title" content="umi的使用">
+<meta property="og:url" content="http://example.com/2023/06/26/umi/index.html">
+<meta property="og:site_name" content="刘明皓的博客">
+<meta property="og:description" content="false">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-06-26T02:07:47.000Z">
+<meta property="article:modified_time" content="2023-06-26T03:42:47.129Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/39458e98cc7b2c79a6985f1ebcaa8f8.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/39458e98cc7b2c79a6985f1ebcaa8f8.jpg">
+    <meta name="theme-color" content="#4F4F4F">
+    <link rel="shortcut icon" href="/images/39458e98cc7b2c79a6985f1ebcaa8f8.jpg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            umi的使用 -
+        
+        刘明皓的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/assets/fonts.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    Global.theme_config = {"articles":{"style":{"font_size":"18px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":true,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["功不唐捐 玉汝于成"]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":false,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/bj1.gif","skip_dirs":["推荐"]}},"colors":{"primary":"#4F4F4F","secondary":"#1890ff"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-light.webp"},"title":"刘明皓的博客","subtitle":{"text":["人终会被年少不可得之物困其一生，暮年浮光之景终将瞬息点醒，又终会因一事一物解开终生困惑"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":false,"smart_backspace":false},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/lmhlmhlmh123","instagram":null,"zhihu":null,"twitter":null,"email":"3398157816@qq.com"}}},"plugins":{"feed":{"enable":true},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"大海","artist":"张雨生","url":"https://www.xzmp3.com/down/d7286673db5a.mp3","cover":"https://img2.baidu.com/it/u=1531336644,1874865814&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.1.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"YYYY-MM-DD","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                刘明皓的博客
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/tags"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-tags"></i>
+                                        
+                                        TAGS
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/categories"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-folder"></i>
+                                        
+                                        CATEGORIES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/tags"  >
+                             
+                                
+                                    <i class="fa-regular fa-tags"></i>
+                                
+                                TAGS
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/categories"  >
+                             
+                                
+                                    <i class="fa-regular fa-folder"></i>
+                                
+                                CATEGORIES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            
+                      
+                <div class="article-title">
+                    <img src="https://img2.baidu.com/it/u=2753849152,1104447999&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=1020&amp;h=459" alt="umi的使用" />
+                    <h1 class="article-title-cover">umi的使用</h1>
+                </div>
+            
+                
+            
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/39458e98cc7b2c79a6985f1ebcaa8f8.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">刘明皓的博客</span>
+                            
+                                <span class="author-label">功不唐捐 玉汝于成</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-06-26 10:07:47</span>
+        <span class="mobile">2023-06-26 10:07</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-06-26 11:42:47</span>
+            <span class="mobile">2023-06-26 11:42</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/React/">React</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3.8k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>18 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2 id="Umi介绍"><a href="#Umi介绍" class="headerlink" title="Umi介绍"></a>Umi介绍</h2><p>Umi，中文发音为「乌米」，是可扩展的企业级前端应用框架。Umi 以路由为基础的，同时支持配置式路由和约定式路由，保证路由的功能完备，并以此进行功能扩展。然后配以生命周期完善的插件体系，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求。</p>
+<ul>
+<li>Umi 有很多非常有意思的特性，比如。<br>1、企业级，在安全性、稳定性、最佳实践、约束能力方面会考虑更多<br>2、插件化，啥都能改，Umi 本身也是由插件构成<br>3、MFSU，比 Vite 还快的 Webpack 打包方案<br>4、基于 React Router 6 的完备路由<br>5、默认最快的请求<br>6、SSR &amp; SSG<br>7、稳定白盒性能好的 ESLint 和 Jest<br>8、React 18 的框架级接入<br>9、Monorepo 最佳实践</li>
+</ul>
+<h5 id="什么时候不用-Umi？"><a href="#什么时候不用-Umi？" class="headerlink" title="什么时候不用 Umi？"></a>什么时候不用 Umi？</h5><p>如果你的项目，</p>
+<p>1、需要支持 IE 8 或更低版本的浏览器<br>2、需要支持 React 16.8.0 以下的 React<br>3、需要跑在 Node 14 以下的环境中<br>4、有很强的 webpack 自定义需求和主观意愿<br>5、需要选择不同的路由方案<br>…</p>
+<p>Umi 可能不适合你。</p>
+<h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><h3 id="1、首先我们下载pnpm-官方推荐"><a href="#1、首先我们下载pnpm-官方推荐" class="headerlink" title="1、首先我们下载pnpm (官方推荐)"></a>1、首先我们下载pnpm (官方推荐)</h3><h5 id="pnpm使用"><a href="#pnpm使用" class="headerlink" title="pnpm使用"></a>pnpm使用</h5><ul>
+<li><p>全局安装</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install pnpm -g</span><br></pre></td></tr></table></figure></div></li>
+<li><p>设置源</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看源</span></span><br><span class="line">pnpm config get registry</span><br><span class="line"><span class="comment">// 切换淘宝源</span></span><br><span class="line">pnpm config set registry <span class="attr">https</span>:<span class="comment">//registry.npmmirror.com/</span></span><br></pre></td></tr></table></figure></div></li>
+<li><p>使用</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pnpm install 包名称</span><br><span class="line">pnpm i 包名称</span><br><span class="line">pnpm add 包名称    <span class="comment">// -S  默认写入dependencies</span></span><br><span class="line">pnpm add -D    <span class="comment">// -D devDependencies</span></span><br><span class="line">pnpm add -g    <span class="comment">// 全局安装</span></span><br></pre></td></tr></table></figure></div></li>
+<li><p>移除</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pnpm remove 包名称  <span class="comment">// 移除包</span></span><br><span class="line">pnpm remove 包名称 --<span class="variable language_">global</span>  <span class="comment">// 移除全局包</span></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<p>-更新</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pnpm up  <span class="comment">// 更新所有依赖项</span></span><br><span class="line">pnpm upgrade 包  <span class="comment">// 更新包</span></span><br><span class="line">pnpm upgrade 包 --<span class="variable language_">global</span>  <span class="comment">// 更新全局包</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="什么是pnpm"><a href="#什么是pnpm" class="headerlink" title="什么是pnpm"></a>什么是pnpm</h5><ul>
+<li>pnpm是 Node.js 的替代包管理器。它是 npm 的直接替代品，但速度更快、效率更高。</li>
+<li>pnpm优势<br>  1、安全: 与 yarn 一样，pnpm 有一个包含所有已安装包校验和的特殊文件，用于在执行代码之前验证每个已安装包的完整性。<br>  2、离线模式: pnpm 将所有下载的包 tarball 保存在本地注册表镜像中。当包在本地可用时，它从不发出请求。使用该–offline参数可以完全禁止HTTP请求。<br>  3、速度: pnpm 不仅比 npm 快，而且比yarn 快。无论是冷缓存还是热缓存，它都比yarn 快。yarn 从缓存中复制文件，而 pnpm 只是从全局存储中链接它们。</li>
+<li>与 npm 的差别<br>与 npm 不同的是，pnpm 会校验所有的参数。 比如，pnpm install –foo 会执行失败，因为 –foo 不是 pnpm install的有效参数。<br>但是，某些依赖关系可能使用 npm_config_ 环境变量，其中 从 CLI 选项中填充。 在这种情况下，你有以下选择：<br>设置明确的环境变量：npm_config_foo=true pnpm install<br>用 –config.强制使用未知选项: pnpm install –config.foo</li>
+</ul>
+<h3 id="1、创建项目"><a href="#1、创建项目" class="headerlink" title="1、创建项目"></a>1、创建项目</h3><p>① 首先创建一个文件夹并来到该文件目录下<br>② 使用pnpm创建项目</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">pnpm dlx create-umi@latest <span class="comment">//创建项目命令</span></span><br><span class="line"></span><br><span class="line">✔ <span class="title class_">Install</span> the following <span class="attr">package</span>: create-umi? (Y/n) · <span class="literal">true</span></span><br><span class="line">✔ <span class="title class_">Pick</span> <span class="title class_">Npm</span> <span class="title class_">Client</span> › pnpm</span><br><span class="line">✔ <span class="title class_">Pick</span> <span class="title class_">Npm</span> <span class="title class_">Registry</span> › taobao</span><br><span class="line"><span class="title class_">Write</span>: .<span class="property">gitignore</span></span><br><span class="line"><span class="title class_">Write</span>: .<span class="property">npmrc</span></span><br><span class="line"><span class="title class_">Write</span>: .<span class="property">umirc</span>.<span class="property">ts</span></span><br><span class="line"><span class="title class_">Copy</span>:  layouts/index.<span class="property">tsx</span></span><br><span class="line"><span class="title class_">Write</span>: package.<span class="property">json</span></span><br><span class="line"><span class="title class_">Copy</span>:  pages/index.<span class="property">tsx</span></span><br><span class="line"><span class="title class_">Copy</span>:  pages/users.<span class="property">tsx</span></span><br><span class="line"><span class="title class_">Copy</span>:  pages/users/foo.<span class="property">tsx</span></span><br><span class="line">&gt; @ postinstall /private/tmp/sorrycc-vylwuW</span><br><span class="line">&gt; umi setup</span><br><span class="line">info  - generate files</span><br></pre></td></tr></table></figure></div>
+<p>③ 启动项目</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pnpm dev</span><br><span class="line">        ╔═════════════════════════════════════════════════════╗</span><br><span class="line">        ║ <span class="title class_">App</span> listening <span class="attr">at</span>:                                   ║</span><br><span class="line">        ║  &gt;   <span class="title class_">Local</span>: <span class="attr">https</span>:<span class="comment">//127.0.0.1:8000                  ║</span></span><br><span class="line">ready - ║  &gt; <span class="title class_">Network</span>: <span class="attr">https</span>:<span class="comment">//192.168.1.1:8000                ║</span></span><br><span class="line">        ║                                                     ║</span><br><span class="line">        ║ <span class="title class_">Now</span> you can open browser <span class="keyword">with</span> the above addresses👆 ║</span><br><span class="line">        ╚═════════════════════════════════════════════════════╝</span><br><span class="line">event - compiled successfully <span class="keyword">in</span> <span class="number">1121</span> ms (<span class="number">388</span> modules)</span><br><span class="line">event - <span class="variable constant_">MFSU</span> compiled successfully <span class="keyword">in</span> <span class="number">1308</span> ms (<span class="number">875</span> modules)</span><br></pre></td></tr></table></figure></div>
+<p>在浏览器里打开 <a class="link"   target="_blank" rel="noopener" href="http://localhost:8000/" >http://localhost:8000/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="路由的使用"><a href="#路由的使用" class="headerlink" title="路由的使用"></a>路由的使用</h2><p>在 Umi 应用是单页应用，页面地址的跳转都是在浏览器端完成的，不会重新请求服务端获取 html，html 只在应用初始化时加载一次。所有页面由不同的组件构成，页面的切换其实就是不同组件的切换，你只需要在配置中把不同的路由路径和对应的组件关联上。</p>
+<h3 id="配置路由"><a href="#配置路由" class="headerlink" title="配置路由"></a>配置路由</h3><ul>
+<li>在。<br>.umirc.ts文件中书写路由</li>
+<li>路由组件要写在pages文件夹中<div class="highlight-container" data-rel="Ts"><figure class="iseeu highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;umi&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="comment">// history:&#123;type:&#x27;hash&#x27;&#125;, //切换路由模式 默认为history模式</span></span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>:<span class="string">&#x27;/film&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>:<span class="string">&quot;@/pages/Film.tsx&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>:<span class="string">&#x27;/cinema&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>:<span class="string">&quot;@/pages/Cinema.tsx&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">npmClient</span>: <span class="string">&#x27;pnpm&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h3><ul>
+<li>通过redirect来实现重定向<div class="highlight-container" data-rel="Ts"><figure class="iseeu highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;umi&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="comment">// history:&#123;type:&#x27;hash&#x27;&#125;, //切换路由模式 默认为history模式</span></span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>:<span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">      <span class="attr">redirect</span>:<span class="string">&quot;/film&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>:<span class="string">&#x27;/film&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>:<span class="string">&quot;@/pages/Film.tsx&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>:<span class="string">&#x27;/cinema&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>:<span class="string">&quot;@/pages/Cinema.tsx&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">npmClient</span>: <span class="string">&#x27;pnpm&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+<h3 id="配置子路由"><a href="#配置子路由" class="headerlink" title="配置子路由"></a>配置子路由</h3><div class="highlight-container" data-rel="Ts"><figure class="iseeu highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;umi&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="comment">// history:&#123;type:&#x27;hash&#x27;&#125;, //切换路由模式 默认为history模式</span></span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>:<span class="string">&#x27;/film&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>:<span class="string">&quot;@/pages/Film.tsx&quot;</span>,</span><br><span class="line">      <span class="attr">routes</span>:[</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">path</span>:<span class="string">&#x27;/film&#x27;</span>,</span><br><span class="line">          <span class="attr">redirect</span>:<span class="string">&quot;/film/NowPlaying&quot;</span>, <span class="comment">// 如果进入film组件 重定向到NowPlaying组件</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">path</span>:<span class="string">&quot;ComingSoon&quot;</span>,</span><br><span class="line">          <span class="attr">component</span>:<span class="string">&quot;@/pages/film/ComingSoon.tsx&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">path</span>:<span class="string">&quot;NowPlaying&quot;</span>,</span><br><span class="line">          <span class="attr">component</span>:<span class="string">&quot;@/pages/film/NowPlaying.tsx&quot;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">npmClient</span>: <span class="string">&#x27;pnpm&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="404路由"><a href="#404路由" class="headerlink" title="404路由"></a>404路由</h3><ul>
+<li>意思就是 当你跳转一个不存在的路由时 会跳转到404组件 path写法：/*</li>
+<li>首先我们需要在pages文件夹下 新建404.tsx组件<div class="highlight-container" data-rel="Ts"><figure class="iseeu highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;umi&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="comment">// history:&#123;type:&#x27;hash&#x27;&#125;, //切换路由模式 默认为history模式</span></span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">// 如果路径没有对上 则跳到404页面</span></span><br><span class="line">      <span class="attr">path</span>:<span class="string">&#x27;/*&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>:<span class="string">&quot;@/pages/404.tsx&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">npmClient</span>: <span class="string">&#x27;pnpm&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="路由拦截"><a href="#路由拦截" class="headerlink" title="路由拦截"></a>路由拦截</h3><ul>
+<li>配置路由组件的包装组件，通过包装组件可以为当前的路由组件组合进更多的功能。 比如，可以用于路由级别的权限校验：<div class="highlight-container" data-rel="Ts"><figure class="iseeu highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;umi&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="comment">// history:&#123;type:&#x27;hash&#x27;&#125;, //切换路由模式 默认为history模式</span></span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>:<span class="string">&#x27;/center&#x27;</span>, <span class="comment">//在跳转/center这个路径时 会先进wrappers文件夹下的Auth组件做验证</span></span><br><span class="line">      <span class="attr">component</span>:<span class="string">&quot;@/pages/Center.tsx&quot;</span>,</span><br><span class="line">      <span class="attr">wrappers</span>: [</span><br><span class="line">        <span class="string">&#x27;@/wrappers/Auth&#x27;</span>,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>:<span class="string">&#x27;/login&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>:<span class="string">&quot;@/pages/Login.tsx&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">npmClient</span>: <span class="string">&#x27;pnpm&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div></li>
+<li>在src目录下新建wrappers文件夹 在文件夹中新建Auth.tsx组件</li>
+<li>Auth.tsx<div class="highlight-container" data-rel="Tsx"><figure class="iseeu highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Navigate</span>, <span class="title class_">Outlet</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;umi&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Auth</span>(<span class="params">props:<span class="built_in">any</span></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> token=<span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;token&#x27;</span>) <span class="keyword">as</span> <span class="built_in">string</span></span><br><span class="line">    <span class="keyword">if</span>(token)&#123; <span class="comment">//如果token存在就进入 Center组件 否则进入Login组件</span></span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Outlet</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">        )</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/login&quot;</span>/&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="路由跳转"><a href="#路由跳转" class="headerlink" title="路由跳转"></a>路由跳转</h3><ul>
+<li><p>声明式路由</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Link</span>,<span class="title class_">Outlet</span>,<span class="title class_">NavLink</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;umi&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/film&quot;</span>&gt;</span>Film<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;/film&quot;</span>&gt;</span>Film<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Outlet</span>/&gt;</span></span> <span class="comment">// 路由坑 用于展示路由</span></span><br></pre></td></tr></table></figure></div></li>
+<li><p>编程式路由</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;useNavigate&#125; <span class="keyword">from</span> <span class="string">&#x27;umi&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> navigate=<span class="title function_">useNavigate</span>()</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">go</span>=(<span class="params"></span>)=&gt;&#123;</span><br><span class="line">        <span class="title function_">navigate</span>(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onClick</span>=<span class="string">&#123;go&#125;</span>&gt;</span>click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="路由传参"><a href="#路由传参" class="headerlink" title="路由传参"></a>路由传参</h3><h5 id="params传参"><a href="#params传参" class="headerlink" title="params传参"></a>params传参</h5><ul>
+<li><p>umirc.ts文件</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;umi&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="comment">// history:&#123;type:&#x27;hash&#x27;&#125;, //切换路由模式 默认为history模式</span></span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/film/:id&#x27;</span>,</span><br><span class="line">        <span class="attr">component</span>:<span class="string">&quot;@/pages/Film.tsx&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div></li>
+<li><p>声明式路由</p>
+<div class="highlight-container" data-rel="Tsx"><figure class="iseeu highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Link</span>,<span class="title class_">Outlet</span>,<span class="title class_">NavLink</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;umi&#x27;</span>;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&#123;</span>`/<span class="attr">film</span>/$&#123;<span class="attr">id</span>&#125;`&#125;&gt;</span>Film<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&#123;</span>`/<span class="attr">film</span>/$&#123;<span class="attr">id</span>&#125;`&#125;&gt;</span>Film<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Outlet</span>/&gt;</span></span></span><br></pre></td></tr></table></figure></div></li>
+<li><p>编程式路由</p>
+<div class="highlight-container" data-rel="Tsx"><figure class="iseeu highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;useNavigate&#125; <span class="keyword">from</span> <span class="string">&#x27;umi&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> navigate=<span class="title function_">useNavigate</span>()</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">go</span>=(<span class="params">e</span>)=&gt;&#123;</span><br><span class="line">        <span class="title function_">navigate</span>(<span class="string">`/film/<span class="subst">$&#123;e&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span>go(1)&#125;&gt;click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li><p>组件接收</p>
+<div class="highlight-container" data-rel="Tsx"><figure class="iseeu highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;useParams&#125; <span class="keyword">from</span> <span class="string">&#x27;umi&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;id&#125;=<span class="title function_">useParams</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h5 id="state传参"><a href="#state传参" class="headerlink" title="state传参"></a>state传参</h5><ul>
+<li><p>umirc.ts文件</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;umi&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>:<span class="string">&#x27;/film&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>:<span class="string">&quot;@/pages/Film.tsx&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div></li>
+<li><p>声明式路由</p>
+<div class="highlight-container" data-rel="Tsx"><figure class="iseeu highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Link</span>,<span class="title class_">Outlet</span>,<span class="title class_">NavLink</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;umi&#x27;</span>;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/film&quot;</span> <span class="attr">state</span>=<span class="string">&#123;&#123;id:1,title:</span>&quot;<span class="attr">zs</span>&quot;&#125;&#125;&gt;</span>Film<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;/film&quot;</span> <span class="attr">state</span>=<span class="string">&#123;&#123;id:1,title:</span>&quot;<span class="attr">zs</span>&quot;&#125;&#125;&gt;</span>Film<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Outlet</span>/&gt;</span></span></span><br></pre></td></tr></table></figure></div></li>
+<li><p>编程式路由</p>
+<div class="highlight-container" data-rel="Tsx"><figure class="iseeu highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;useNavigate&#125; <span class="keyword">from</span> <span class="string">&#x27;umi&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> navigate=<span class="title function_">useNavigate</span>()</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">go</span>=(<span class="params"></span>)=&gt;&#123;</span><br><span class="line">        <span class="title function_">navigate</span>(<span class="string">&quot;/film&quot;</span>,&#123;</span><br><span class="line">            <span class="attr">state</span>:&#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">title</span>:<span class="string">&quot;zs&quot;</span>&#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onClick</span>=<span class="string">&#123;go&#125;</span>&gt;</span>click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li><p>组件接收</p>
+<div class="highlight-container" data-rel="Tsx"><figure class="iseeu highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;useLocation&#125; <span class="keyword">from</span> <span class="string">&#x27;umi&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> location=<span class="title function_">useLocation</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="目前支持的路由路径配置形式："><a href="#目前支持的路由路径配置形式：" class="headerlink" title="目前支持的路由路径配置形式："></a>目前支持的路由路径配置形式：</h3><div class="highlight-container" data-rel="Txt"><figure class="iseeu highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/groups</span><br><span class="line">/groups/admin</span><br><span class="line">/users/:id</span><br><span class="line">/users/:id/messages</span><br><span class="line">/files/*</span><br><span class="line">/files/:id/*</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="配置代理"><a href="#配置代理" class="headerlink" title="配置代理"></a>配置代理</h2><ul>
+<li>代理也称网络代理，是一种特殊的网络服务，允许一个终端（一般为客户端）通过这个服务与另一个终端（一般为服务器）进行非直接的连接。</li>
+</ul>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><ul>
+<li>在umirc.ts文件中配置<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;umi&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">routes</span>: [],</span><br><span class="line">  <span class="attr">npmClient</span>: <span class="string">&#x27;pnpm&#x27;</span>,</span><br><span class="line">  <span class="comment">// 反向代理</span></span><br><span class="line">  <span class="attr">proxy</span>:&#123;</span><br><span class="line">    <span class="string">&quot;/api&quot;</span>:&#123;</span><br><span class="line">      <span class="attr">target</span>:<span class="string">&quot;https://i.maoyan.com&quot;</span>,</span><br><span class="line">      <span class="attr">changeOrigin</span>:<span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="在组件中使用"><a href="#在组件中使用" class="headerlink" title="在组件中使用"></a>在组件中使用</h3><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">useEffect</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">   <span class="comment">// 该路径来自猫眼电影首页数据</span></span><br><span class="line">   <span class="title function_">fetch</span>(<span class="string">&quot;/api/mmdb/movie/v3/list/hot.json?ct=%E5%8C%97%E4%BA%AC&amp;ci=1&amp;channelId=4&quot;</span>).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>)=&gt;</span>res.<span class="title function_">json</span>()).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;,[])</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h3><p>在普通的 Umi 应用中，默认不附带任何插件 ，如需使用Max的功能（如 数据流、antd等），需要手动安装插件并开启他们：</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add -D @umijs/plugins</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>如开启dva插件：</li>
+<li>在umirc.ts文件中<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .umirc.ts</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="string">&#x27;@umijs/plugins/dist/dva&#x27;</span>],</span><br><span class="line">  <span class="attr">dva</span>: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h2 id="Mock"><a href="#Mock" class="headerlink" title="Mock"></a>Mock</h2><ul>
+<li><p>Umi 提供了开箱即用的 Mock 功能，能够用方便简单的方式来完成 Mock 数据的设置。<br>什么是 Mock 数据：在前后端约定好 API 接口以后，前端可以使用 Mock 数据来在本地模拟出 API 应该要返回的数据，这样一来前后端开发就可以同时进行，不会因为后端 API 还在开发而导致前端的工作被阻塞。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>1、我们需要在项目目录下 新建mock文件夹<br>2、在文件夹中新建js文件 因为/mock目录下的文件会被Umi视为Mock文件来处理。</p>
+</li>
+<li><p>Mock文件默认导出一个对象，而对象的每个Key对应了一个Mock接口，值则是这个接口所对应的返回数据，例如这样的Mock文件：</p>
+<h5 id="mock文件夹下api-js"><a href="#mock文件夹下api-js" class="headerlink" title="mock文件夹下api.js"></a>mock文件夹下api.js</h5><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="string">&quot;GET /users&quot;</span>:&#123;<span class="attr">name</span>:<span class="string">&quot;zs&quot;</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h5 id="在组件中使用-1"><a href="#在组件中使用-1" class="headerlink" title="在组件中使用"></a>在组件中使用</h5><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">useEffect</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="title function_">fetch</span>(<span class="string">&#x27;/users&#x27;</span>).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>)=&gt;</span>res.<span class="title function_">json</span>()).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(res) <span class="comment">//&#123;name:&quot;zs&quot;,age:18&#125;</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,[])</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="POST方法"><a href="#POST方法" class="headerlink" title="POST方法"></a>POST方法</h3><h5 id="mock文件夹下api-js-1"><a href="#mock文件夹下api-js-1" class="headerlink" title="mock文件夹下api.js"></a>mock文件夹下api.js</h5><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="string">&quot;POST /login&quot;</span>:<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">body</span>)</span><br><span class="line">        <span class="keyword">if</span>(req.<span class="property">body</span>.<span class="property">userName</span>==<span class="string">&quot;zs&quot;</span>&amp;&amp;req.<span class="property">body</span>.<span class="property">password</span>==<span class="string">&quot;1234&quot;</span>)&#123;</span><br><span class="line">            res.<span class="title function_">send</span>(&#123;<span class="attr">ok</span>:<span class="number">1</span>&#125;)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            res.<span class="title function_">send</span>(&#123;<span class="attr">ok</span>:<span class="number">0</span>&#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h5 id="在组件中使用-2"><a href="#在组件中使用-2" class="headerlink" title="在组件中使用"></a>在组件中使用</h5><div class="highlight-container" data-rel="Tsx"><figure class="iseeu highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useEffect, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; useNavigate &#125; <span class="keyword">from</span> <span class="string">&#x27;umi&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">IUser</span>&#123;</span><br><span class="line">    <span class="attr">userName</span>: <span class="built_in">string</span>,</span><br><span class="line">    <span class="attr">password</span>: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Login</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> navigate=<span class="title function_">useNavigate</span>()</span><br><span class="line">    <span class="keyword">const</span> [user,setUser]=useState&lt;<span class="title class_">IUser</span>&gt;(&#123;</span><br><span class="line">        <span class="attr">userName</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">password</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">Login</span>=(<span class="params"></span>)=&gt;&#123;</span><br><span class="line">        <span class="title function_">fetch</span>(<span class="string">&#x27;/login&#x27;</span>,&#123;</span><br><span class="line">            <span class="attr">method</span>:<span class="string">&quot;POST&quot;</span>,</span><br><span class="line">            <span class="attr">headers</span>:&#123;<span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span>&#125;,</span><br><span class="line">            <span class="attr">body</span>:<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(user)</span><br><span class="line">        &#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>)=&gt;</span>res.<span class="title function_">json</span>()).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(res.<span class="property">ok</span>==<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&quot;token&quot;</span>,<span class="string">&quot;1234567890&quot;</span>)</span><br><span class="line">                <span class="title function_">navigate</span>(<span class="string">&quot;/&quot;</span>)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="title function_">alert</span>(<span class="string">&quot;登录失败&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&#123;user.userName&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;(e)</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-xml">            setUser(&#123;...user,userName:e.target.value&#125;);</span></span><br><span class="line"><span class="language-xml">        &#125;&#125;/&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&#123;user.password&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;(e)</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-xml">            setUser(&#123;...user,password:e.target.value&#125;);</span></span><br><span class="line"><span class="language-xml">        &#125;&#125;/&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;Login&#125;</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="dva的使用"><a href="#dva的使用" class="headerlink" title="dva的使用"></a>dva的使用</h2><h3 id="1、在umirc-ts文件中打开dva插件"><a href="#1、在umirc-ts文件中打开dva插件" class="headerlink" title="1、在umirc.ts文件中打开dva插件"></a>1、在umirc.ts文件中打开dva插件</h3><div class="highlight-container" data-rel="Ts"><figure class="iseeu highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="string">&#x27;@umijs/plugins/dist/dva&#x27;</span>],</span><br><span class="line">  <span class="attr">dva</span>: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2、在models文件中创建-ts文件"><a href="#2、在models文件中创建-ts文件" class="headerlink" title="2、在models文件中创建.ts文件"></a>2、在models文件中创建.ts文件</h3><h3 id="3、同步写法"><a href="#3、同步写法" class="headerlink" title="3、同步写法"></a>3、同步写法</h3><ul>
+<li>cityModels.ts<div class="highlight-container" data-rel="Ts"><figure class="iseeu highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="attr">namespace</span>:<span class="string">&quot;city&quot;</span>,<span class="comment">// 命名空间</span></span><br><span class="line">    <span class="attr">state</span>:&#123;</span><br><span class="line">        <span class="attr">cityName</span>:<span class="string">&quot;北京&quot;</span>,</span><br><span class="line">        <span class="attr">cityId</span>:<span class="string">&#x27;110100&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 在reducer写同步方法</span></span><br><span class="line">    <span class="attr">reducers</span>:&#123;</span><br><span class="line">        <span class="title function_">changeCity</span>(<span class="params">pre:<span class="built_in">any</span>,&#123;payload&#125;:<span class="built_in">any</span></span>)&#123;</span><br><span class="line">            <span class="comment">// 通过payload接收city组件传来的数据</span></span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                ...pre,</span><br><span class="line">                <span class="attr">cityName</span>:payload.<span class="property">cityName</span>, <span class="comment">//将数据重新赋值给cityName和cityId</span></span><br><span class="line">                <span class="attr">cityId</span>:payload.<span class="property">cityId</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>组件中使用<div class="highlight-container" data-rel="Tsx"><figure class="iseeu highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useEffect, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">&#x27;umi&#x27;</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">City</span>(<span class="params">props:<span class="built_in">any</span></span>) &#123;</span><br><span class="line">    <span class="comment">// 通过props就可以拿到返回的state</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">getMao</span>=(<span class="params">e:<span class="built_in">any</span></span>)=&gt;&#123;</span><br><span class="line">        <span class="comment">// 点击事件调用dispatch方法</span></span><br><span class="line">        props.<span class="title function_">dispatch</span>(&#123;</span><br><span class="line">            <span class="attr">type</span>:<span class="string">&quot;city/changeCity&quot;</span>,</span><br><span class="line">            <span class="comment">// 还可以通过payload给city传参</span></span><br><span class="line">            <span class="comment">// payload:&#123;</span></span><br><span class="line">            <span class="comment">//     cityName:e.name,</span></span><br><span class="line">            <span class="comment">//     cityId:e.cityId</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">height:</span> <span class="attr">window.innerHeight</span> &#125;&#125;&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">connect</span>(<span class="function">(<span class="params">state</span>)=&gt;</span>(&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        state</span><br><span class="line">    &#125;</span><br><span class="line">&#125;))(<span class="title class_">City</span>)</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="4、异步写法"><a href="#4、异步写法" class="headerlink" title="4、异步写法"></a>4、异步写法</h3><ul>
+<li><p>cinameModels.ts</p>
+<div class="highlight-container" data-rel="Ts"><figure class="iseeu highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="attr">namespace</span>:<span class="string">&quot;cinema&quot;</span>,</span><br><span class="line">    <span class="attr">state</span>:&#123;</span><br><span class="line">        <span class="attr">list</span>:[]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">reducers</span>:&#123;</span><br><span class="line">        <span class="comment">// 如果这个方法被调用 则清空数据</span></span><br><span class="line">        <span class="title function_">clearList</span>(<span class="params">pre:<span class="built_in">any</span>,action:<span class="built_in">any</span></span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                ...pre,</span><br><span class="line">                <span class="attr">list</span>:[]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 第三步</span></span><br><span class="line">        <span class="comment">// 如果该方法被effects中的geiList函数中的put调用 则会把拿到的数据传给list</span></span><br><span class="line">                <span class="comment">// pre原始数据 action是put通过payload传过来的数据</span></span><br><span class="line">        <span class="title function_">changeList</span>(<span class="params">pre:<span class="built_in">any</span>,action:<span class="built_in">any</span></span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                ...pre, <span class="comment">//解构原始数据</span></span><br><span class="line">                <span class="attr">list</span>:action.<span class="property">payload</span> <span class="comment">//将得到的数据重新赋值</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 第一步</span></span><br><span class="line">    <span class="comment">// 在effect中调用异步方法</span></span><br><span class="line">    <span class="attr">effects</span>:&#123;</span><br><span class="line">        <span class="comment">// cinema组件调用getList方法 该方法有两个参数 action是组件传来的参数 obj是该方法自带的方法</span></span><br><span class="line">        *<span class="title function_">geiList</span>(<span class="attr">action</span>:<span class="built_in">any</span>,<span class="attr">obj</span>:<span class="built_in">any</span>):<span class="built_in">any</span>&#123;</span><br><span class="line">            <span class="keyword">const</span> &#123;put,call&#125;=obj <span class="comment">// 在obj方法中解构出 put call</span></span><br><span class="line">                    <span class="comment">// call用来获取数据 put用来发送数据</span></span><br><span class="line">            <span class="comment">// call通过生成器函数调用getListCinema函数 并传递参数id</span></span><br><span class="line">            <span class="keyword">var</span> res= <span class="keyword">yield</span> <span class="title function_">call</span>(getListCinema,action.<span class="property">payload</span>.<span class="property">cityId</span>)</span><br><span class="line">            <span class="comment">// put将得到的数据通过payload传给reducers中的changeList</span></span><br><span class="line">            <span class="keyword">yield</span> <span class="title function_">put</span>(&#123;</span><br><span class="line">                <span class="attr">type</span>:<span class="string">&quot;changeList&quot;</span>,</span><br><span class="line">                <span class="attr">payload</span>:res</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第二步</span></span><br><span class="line"><span class="comment">// 数据请求函数 如果被geiList中的call方法调用 开始请求 请求完成之后将数据返回给call</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">getListCinema</span>(<span class="params">cityId:<span class="built_in">string</span></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> res=<span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">`https://m.maizuo.com/gateway?cityId=<span class="subst">$&#123;cityId&#125;</span>&amp;ticketFlag=1&amp;k=6327212`</span>,&#123;</span><br><span class="line">        <span class="attr">headers</span>:&#123;</span><br><span class="line">            <span class="string">&#x27;X-Client-Info&#x27;</span>: <span class="string">&#x27;&#123;&quot;a&quot;:&quot;3000&quot;,&quot;ch&quot;:&quot;1002&quot;,&quot;v&quot;:&quot;5.2.1&quot;,&quot;e&quot;:&quot;16842878395119008311345153&quot;,&quot;bc&quot;:&quot;110100&quot;&#125;&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;X-Host&#x27;</span>:<span class="string">&#x27; mall.film-ticket.cinema.list&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>)=&gt;</span>res.<span class="title function_">json</span>())</span><br><span class="line">    <span class="keyword">return</span> res.<span class="property">data</span>.<span class="property">cinemas</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li><p>组件中使用</p>
+<div class="highlight-container" data-rel="Tsx"><figure class="iseeu highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;useLocation, useNavigate,<span class="title class_">Outlet</span>,connect&#125; <span class="keyword">from</span> <span class="string">&quot;umi&quot;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NavBar</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd-mobile&#x27;</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Cinema</span>(<span class="params">props:<span class="built_in">any</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> navigate=<span class="title function_">useNavigate</span>()</span><br><span class="line">  <span class="keyword">const</span> location=<span class="title function_">useLocation</span>()</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">back</span> = (<span class="params"></span>) =&gt;&#123;</span><br><span class="line">    <span class="title function_">navigate</span>(<span class="string">&#x27;/city&#x27;</span>)</span><br><span class="line">    <span class="comment">// 如果要跳转到City组件</span></span><br><span class="line">    <span class="comment">// 则调用models文件夹下面中的cinemaModels文件中clearList方法</span></span><br><span class="line">    props.<span class="title function_">dispatch</span>(&#123;</span><br><span class="line">      <span class="attr">type</span>:<span class="string">&quot;cinema/clearList&quot;</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(props.<span class="property">list</span>.<span class="property">length</span>===<span class="number">0</span>)&#123;</span><br><span class="line">      <span class="comment">// 如果props.list为空的话 调用models文件夹下面中的cinemaModels文件中geiList方法</span></span><br><span class="line">      props.<span class="title function_">dispatch</span>(&#123;</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&quot;cinema/geiList&quot;</span>,</span><br><span class="line">        <span class="comment">// 并传递cityId</span></span><br><span class="line">        <span class="attr">payload</span>:&#123;</span><br><span class="line">          <span class="attr">cityId</span>:props.<span class="property">title</span>.<span class="property">cityId</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="comment">// 如何有数据则走缓存</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;缓存&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,[])</span><br><span class="line">  <span class="keyword">if</span>(location.<span class="property">pathname</span>==<span class="string">&#x27;/cinema/city&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Outlet</span>/&gt;</span></span></span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">NavBar</span> <span class="attr">back</span>=<span class="string">&#123;props.title.cityName&#125;</span> <span class="attr">onBack</span>=<span class="string">&#123;back&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Cinema<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">NavBar</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">style</span>=<span class="string">&#123;&#123;display:</span>&#x27;<span class="attr">flex</span>&#x27;,<span class="attr">flexWrap:</span>&quot;<span class="attr">wrap</span>&quot;&#125;&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;</span></span><br><span class="line"><span class="language-xml">            props.list.map((item:any)=&gt;&#123;</span></span><br><span class="line"><span class="language-xml">              return <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.cinemaId&#125;</span>&gt;</span>&#123;item.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#125;)</span></span><br><span class="line"><span class="language-xml">          &#125;</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">connect</span>(<span class="function">(<span class="params">state:<span class="built_in">any</span></span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">title</span>: state.<span class="property">city</span>,</span><br><span class="line">    <span class="attr">list</span>:state.<span class="property">cinema</span>.<span class="property">list</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(<span class="title class_">Cinema</span>)</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/React/">#React</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/06/21/protal/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">protal的使用</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;Comments
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">umi的使用</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Umi%E4%BB%8B%E7%BB%8D"><span class="nav-text">Umi介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B"><span class="nav-text">快速上手</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E9%A6%96%E5%85%88%E6%88%91%E4%BB%AC%E4%B8%8B%E8%BD%BDpnpm-%E5%AE%98%E6%96%B9%E6%8E%A8%E8%8D%90"><span class="nav-text">1、首先我们下载pnpm (官方推荐)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-text">1、创建项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">路由的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1"><span class="nav-text">配置路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-text">路由重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%AD%90%E8%B7%AF%E7%94%B1"><span class="nav-text">配置子路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#404%E8%B7%AF%E7%94%B1"><span class="nav-text">404路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E6%8B%A6%E6%88%AA"><span class="nav-text">路由拦截</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC"><span class="nav-text">路由跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%82"><span class="nav-text">路由传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E7%9A%84%E8%B7%AF%E7%94%B1%E8%B7%AF%E5%BE%84%E9%85%8D%E7%BD%AE%E5%BD%A2%E5%BC%8F%EF%BC%9A"><span class="nav-text">目前支持的路由路径配置形式：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="nav-text">配置代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-text">反向代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="nav-text">在组件中使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6"><span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="nav-text">使用插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mock"><span class="nav-text">Mock</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST%E6%96%B9%E6%B3%95"><span class="nav-text">POST方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dva%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">dva的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%9C%A8umirc-ts%E6%96%87%E4%BB%B6%E4%B8%AD%E6%89%93%E5%BC%80dva%E6%8F%92%E4%BB%B6"><span class="nav-text">1、在umirc.ts文件中打开dva插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%9C%A8models%E6%96%87%E4%BB%B6%E4%B8%AD%E5%88%9B%E5%BB%BA-ts%E6%96%87%E4%BB%B6"><span class="nav-text">2、在models文件中创建.ts文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%90%8C%E6%AD%A5%E5%86%99%E6%B3%95"><span class="nav-text">3、同步写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%BC%82%E6%AD%A5%E5%86%99%E6%B3%95"><span class="nav-text">4、异步写法</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">刘明皓的博客</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br>
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.2</a>
+        </div>
+        
+        
+        
+            <div id="start_div" style="display:none">
+                2022/8/17 11:45:14
+            </div>
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+            <li class="right-bottom-tools tool-aplayer flex-center">
+
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+
+<script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/utils.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/main.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/layouts/navbarShrink.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/scrollTopBottom.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/lightDarkSwitch.js"></script>
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/localSearch.js"></script>
+
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/codeBlock.js"></script>
+
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/layouts/lazyload.js"></script>
+
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/runtime.js"></script>
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/layouts/odometer.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/hexo-theme-redefine@2.1.2/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/libs/Typed.min.js"></script>
+  <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/plugins/typed.js"></script>
+
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/libs/mermaid.min.js"></script>
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/plugins/mermaid.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/tools/tocToggle.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/libs/anime.min.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/layouts/toc.js"></script><script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/plugins/tabs.js"></script>
+    
+</div>
+
+
+    <script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax',
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+    <div id="aplayer"></div>
+<script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/libs/APlayer.min.js"></script>
+<script src="https://unpkg.com/hexo-theme-redefine@2.1.2/source/js/plugins/aplayer.js"></script>
+
+</body>
+</html>
